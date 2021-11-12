@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: 'Spartan', sans-serif;
+  background-color: rgb(248, 248, 251);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(12, 14, 22);
+}
+
+p {
+  color: rgb(136, 142, 176);
+  letter-spacing: 0.5px;
+}
+
+button {
+  border: none;
+  outline: none;
+}

@@ -1,0 +1,56 @@
+main {
+    min-height: 100vh;
+    padding-left: 7rem;
+    padding-right: 2rem;
+}
+
+.dashboard-heading {
+    padding: 1rem;
+}
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.chart {
+    grid-row: span 2;
+    background-color: rgb(124, 93, 250);
+    border-radius: 8px;
+    color: #fff;
+}
+
+.stat {
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: solid 1px transparent;
+    transition: all 0.4s ease;
+    box-shadow: 5px 5px 10px rgba(124, 93, 250, 0.089);
+}
+
+.stat:hover {
+    border: solid 1px rgb(124, 93, 250);
+    cursor: pointer;
+}
+
+.stat div h2 {
+    margin-top: 5px;
+}
+
+.fa-chart-line, .fa-users, .fa-file-invoice-dollar, .fa-file-invoice {
+    color: rgb(124, 93, 250);
+    background-color: rgba(124, 93, 250, 0.205);
+    padding: 1rem;
+    border-radius: 50%;
+    margin: 0 1.5rem 0 1.5rem; 
+}
+
+.container-table {
+    margin: 4rem 0 2rem 0;
+}

@@ -1,0 +1,122 @@
+/* wrapper */
+.container-invoice {
+    padding-left: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 5rem;
+}
+
+/* encabezado */
+.container-newInvoice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+}
+
+.invoice-heading {
+    padding-bottom: 10px;
+}
+
+/* filter + new */
+.filter-new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* new invoice btn */
+.btn-newInvoice {
+    margin-left: 2.5rem;
+    background-color: rgb(124, 93, 250);
+    color: #fff;
+    padding: 0.8rem 1rem;
+    border-radius: 10rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-newInvoice:hover {
+    background-color: rgb(146, 119, 255);
+    cursor: pointer;
+}
+
+/* filter icon down */
+.fa-chevron-down {
+    color: rgb(124, 93, 250);
+    margin-left: 10px;
+    font-size: 0.8rem;
+}
+
+/* new invoice plus btn */
+.fa-plus {
+    background-color: #fff;
+    color: rgb(124, 93, 250);
+    padding: 5px 6px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* invoices */
+.container-invoices {
+    width: 60%;
+    margin-top: 2rem;
+}
+
+/* single entry */
+.invoice {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+    grid-template-rows: min-content;
+    align-items: center;
+    background-color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 1px solid transparent;
+    transition: all 0.4s ease;
+    box-shadow: 5px 5px 10px rgba(124, 93, 250, 0.069);
+}
+
+.invoice:hover {
+    border: solid 1px rgb(124, 93, 250);
+    cursor: pointer;
+}
+
+/* date and name */
+.invoice p {
+    font-size: 0.85rem;
+}
+
+/* price */
+.invoice h4 {
+    text-align: right;
+}
+
+.paid-btn,
+.pending-btn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 1rem;
+    width: 6.5rem;
+    height: 2.5rem;
+    border-radius: 6px;
+}
+
+.paid-btn {
+    background-color: rgba(51, 214, 159, 0.06);
+    color: rgb(51, 214, 159);
+}
+
+.pending-btn {
+    background-color: rgba(255, 143, 0, 0.06);
+    color: rgb(255, 143, 0);
+}
+
+.fa-circle {
+    font-size: 0.5rem;
+    margin-right: 5px;
+}
