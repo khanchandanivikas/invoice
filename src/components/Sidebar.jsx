@@ -16,7 +16,7 @@ const Sidebar = () => {
           </div>
         </Link>
         <div>
-          <Link to="/invoice">
+          <Link to="/invoices">
             <i class="fas fa-receipt"></i>
           </Link>
         </div>

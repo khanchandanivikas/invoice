@@ -5,7 +5,7 @@ main {
 }
 
 .dashboard-heading {
-    padding: 1rem;
+    padding: 3rem 0 1.5rem 0;
 }
 
 .dashboard-stats {
@@ -32,6 +32,7 @@ main {
     border: solid 1px transparent;
     transition: all 0.4s ease;
     box-shadow: 5px 5px 10px rgba(124, 93, 250, 0.089);
+    padding: 10px;
 }
 
 .stat:hover {

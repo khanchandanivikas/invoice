@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
+import Invoices from "./pages/Invoices";
 import Invoice from "./pages/Invoice";
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Dashboard />
+          </Route>
+          <Route path="/invoices">
+            <Invoices />
           </Route>
           <Route path="/invoice">
             <Invoice />
