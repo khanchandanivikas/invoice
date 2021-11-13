@@ -85,7 +85,7 @@
     margin-top: 3rem;
     padding: 2rem;
     background-color: rgb(249, 250, 254);
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;
 }
 
 .invoice-item-total {
@@ -107,7 +107,10 @@
     margin-top: 10px;
 }
 
-.payment-due,
-.email {
+.marginTopTwo {
     margin-top: 1rem;
+}
+
+.marginTopOne {
+    margin-top: 5px;
 }

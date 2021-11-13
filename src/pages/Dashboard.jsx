@@ -1,11 +1,22 @@
 import React from "react";
 import "../style/dashboard.css";
+import { motion } from "framer-motion";
 import Chart from "../components/Chart";
 import CustomerTable from "../components/CustomerTable";
 
 const Dashboard = () => {
+  const animation = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <main>
+    <motion.main variants={animation} initial="hidden" animate="visible">
       <h1 className="dashboard-heading">Dashboard</h1>
       <div className="dashboard-stats">
         <div className="stat">
@@ -39,7 +50,7 @@ const Dashboard = () => {
         </div>
       </div>
       <CustomerTable />
-    </main>
+    </motion.main>
   );
 };
 

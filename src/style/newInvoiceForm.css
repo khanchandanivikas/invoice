@@ -1,0 +1,116 @@
+.newInvoice-container {
+    position: fixed;
+    background-color: #fff;
+    z-index: 2;
+    top: 0;
+    padding: 2rem 1rem 2rem 8rem;
+    width: 50vw;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    border-radius: 0 25px 25px 0;
+}
+
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background: rgba(49, 49, 49, 0.8);
+}
+
+.newInvoice-form-container {
+    overflow-y: scroll;
+    width: 100%;
+    padding-right: 1rem;
+}
+
+.newInvoice-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 33.33%);
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.form-grid2 {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+label {
+    color: rgb(126, 136, 195);
+    margin-top: 2rem;
+}
+
+input, select {
+    outline: none;
+    border: 1px solid rgb(223, 227, 250);
+    background: rgb(255, 255, 255);
+    padding: 1rem 1.25rem;
+    color: rgb(12, 14, 22);
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 7px;
+}
+
+input:hover, select:hover {
+    border: 1px solid rgb(124, 93, 250);
+}
+
+.fromTo {
+    color: rgb(124, 93, 250);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.newInvoice-form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-discard {
+    background-color: rgba(126, 136, 195, 0.068);
+    color: rgb(126, 136, 195);
+    border-radius: 10rem;
+    padding: 1rem 1.5rem;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.btn-discard:hover {
+    background-color: rgba(126, 136, 195, 0.25);
+}
+
+.btn-save {
+    background-color: rgb(124, 93, 250);
+    color: #fff;
+    border-radius: 10rem;
+    padding: 1rem 1.5rem;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.btn-save:hover {
+    background-color: rgb(146, 119, 255);
+}
+

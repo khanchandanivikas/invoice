@@ -1,7 +1,10 @@
 import React from "react";
 import MaterialTable from "material-table";
+import { useHistory } from "react-router-dom";
 
 const CustomerTable = () => {
+  let history = useHistory();
+
   const data = [
     {
       client: "vikas",
@@ -61,6 +64,13 @@ const CustomerTable = () => {
         title="Customers"
         columns={columns}
         data={data}
+        actions={[
+          {
+            icon: 'search',
+            tooltip: 'User Details',
+            onClick: (event, rowData) => history.push("/invoices")
+          }
+        ]}
         options={{
           actionsColumnIndex: -1,
           addRowPosition: "first",
