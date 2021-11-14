@@ -6,7 +6,7 @@
     left: 0;
     padding: 2rem 1rem 1rem 8rem;
     width: 50vw;
-    height: 95vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -40,10 +40,11 @@
 
 .form-grid {
     display: grid;
-    grid-template-columns: repeat(3, 33.33%);
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+    column-gap: 1rem;
 }
 
 .form-grid2 {
@@ -52,11 +53,14 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 2rem;
+    column-gap: 1rem;
+    width: 98%;
 }
 
 label {
     color: rgb(126, 136, 195);
     margin-top: 2rem;
+    font-size: 0.85rem;
 }
 
 input, select {
@@ -69,6 +73,7 @@ input, select {
     border-radius: 4px;
     margin-top: 7px;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 input:focus, select:focus {
@@ -116,6 +121,25 @@ input:focus, select:focus {
     background-color: rgb(146, 119, 255);
 }
 
+@media only screen and (max-width: 1024px) {
+    .newInvoice-container {
+        width: 70vw;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+.newInvoice-container {
+    padding: 2rem 1rem 1rem 2rem;
+    margin-top: 5rem;
+    height: calc(100% - 5rem);
+}
+}
+
+@media only screen and (max-width: 481px) {
+.newInvoice-container {
+    width: 90vw;
+}
+}
 
 
 

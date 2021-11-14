@@ -26,7 +26,7 @@ const editInvoice = (props) => {
         animate="visible"
         exit="hidden"
       >
-        <h1>Invoice</h1>
+        <h1>Edit Invoice</h1>
         <div className="newInvoice-form-container">
           <form action="" className="newInvoice-form">
             <label htmlFor="fromAddress" className="fromTo">
@@ -44,15 +44,13 @@ const editInvoice = (props) => {
                 <label htmlFor="post code">Post Code</label>
                 <input type="number" name="post code" />
               </div>
-              <div>
-                <label htmlFor="country">Country</label>
-                <input type="text" name="country" />
-              </div>
             </div>
+            <label htmlFor="country">Country</label>
+            <input type="text" name="country" />
             <label htmlFor="toAddress" className="fromTo">
               Bill To
             </label>
-            <label htmlFor="client name">Client's Namel</label>
+            <label htmlFor="client name">Client's Name</label>
             <input type="text" name="client name" />
             <label htmlFor="client email">Client's Email</label>
             <input
@@ -72,11 +70,9 @@ const editInvoice = (props) => {
                 <label htmlFor="post code">Post Code</label>
                 <input type="number" name="post code" />
               </div>
-              <div>
-                <label htmlFor="country">Country</label>
-                <input type="text" name="country" />
-              </div>
             </div>
+            <label htmlFor="country">Country</label>
+            <input type="text" name="country" />
             <div className="form-grid2">
               <div>
                 <label htmlFor="invoice date">Invoice Date</label>
@@ -99,7 +95,9 @@ const editInvoice = (props) => {
           </form>
         </div>
         <div className="newInvoice-form-buttons">
-          <button onClick={toggleEditInvoice} className="btn-discard">Discard</button>
+          <button onClick={toggleEditInvoice} className="btn-discard">
+            Discard
+          </button>
           <button className="btn-save">Save Changes</button>
         </div>
       </motion.div>

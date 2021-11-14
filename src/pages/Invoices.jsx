@@ -25,16 +25,16 @@ const Invoices = () => {
     <motion.div variants={animation} initial="hidden" animate="visible">
       <div className="container-invoice">
         <div className="container-newInvoice">
-          <div>
+          <div className="invoice-heading-container">
             <h1 className="invoice-heading">Invoices</h1>
             <p>There are 7 total invoices.</p>
           </div>
           <div className="filter-new">
             <h5>
-              Filter by status <i class="fas fa-chevron-down"></i>
+              Filter <i class="fas fa-chevron-down"></i>
             </h5>
             <button onClick={toggleNewInvoice} className="btn-newInvoice">
-              <i class="fas fa-plus"></i> New Invoice
+              <i class="fas fa-plus"></i> New
             </button>
           </div>
         </div>

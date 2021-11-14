@@ -68,6 +68,11 @@ main {
         grid-template-rows: auto;
     }
 
+    .stat {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
     .stat:nth-of-type(1) {
         order: 2;
     }
@@ -87,6 +92,10 @@ main {
     main {
         padding-left: 2rem;
     }
+    .stat {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
 }
 
 @media only screen and (max-width: 481px)  {
@@ -100,5 +109,9 @@ main {
     main {
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+    .stat {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
     }
 }

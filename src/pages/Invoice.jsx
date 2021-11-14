@@ -48,13 +48,14 @@ const Invoice = () => {
               <i class="fas fa-circle paid"></i> Paid
             </button>
           </div>
-          <div>
+          <div className="btn-container">
             <button onClick={toggleEditInvoice} className="edit-btn">
               Edit
             </button>
             <button onClick={handleEliminar} className="delete-btn">
               Delete
             </button>
+          <button className="btn-save">Paid</button>
           </div>
         </div>
         <div className="invoice-item">
@@ -108,7 +109,7 @@ const Invoice = () => {
           </div>
           <div className="invoice-item-total">
             <h4>Amount Due</h4>
-            <h2>£1,800.9</h2>
+            <h3>£1,800.9</h3>
           </div>
         </div>
       </div>

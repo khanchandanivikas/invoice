@@ -42,6 +42,7 @@
     background-color: rgb(236, 87, 87);
     color: #fff;
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 .edit-btn:hover {
@@ -86,6 +87,7 @@
     padding: 2rem;
     background-color: rgb(249, 250, 254);
     border-radius: 8px 8px 0 0;
+    gap: 10px;
 }
 
 .invoice-item-total {
@@ -99,7 +101,7 @@
 }
 
 .invoice-item-total h4,
-.invoice-item-total h2 {
+.invoice-item-total h3 {
     color: #fff;
 }
 
@@ -113,4 +115,87 @@
 
 .marginTopOne {
     margin-top: 7px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .invoice-status-container {
+        width: 80%;
+    }
+
+    .invoice-item {
+        width: 80%;
+    }
+
+    .container-invoice-clicked {
+        padding-left: 5rem;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .invoice-status-container {
+        width: 90%;
+    }
+
+    .invoice-item {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .invoice-status-container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .invoice-status {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 1rem;
+    }
+
+    .btn-save {
+        margin-right: 0;
+    }
+
+    .invoice-item {
+        width: 100%;
+    }
+
+    .container-invoice-clicked {
+        padding: 7rem 2rem 2rem 2rem;
+    }
+
+    .invoice-item-number {
+        flex-direction: column;
+    }
+
+    .invoice-item-number p:nth-of-type(1) {
+        margin-top: 2rem;
+    }
+
+    .invoice-item-details {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .invoice-item-details div:nth-of-type(3) {
+        margin-top: 2rem;
+    }
+
+    .invoice-item-details div:nth-of-type(3) h4 {
+        margin-top: 1rem;
+    }
+}
+
+@media only screen and (max-width: 481px) {
+    .invoice-item-qty {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem;
+    }
 }
