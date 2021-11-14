@@ -5,7 +5,7 @@ import "../style/sidebar.css";
 const Sidebar = () => {
   return (
     <aside>
-      <div>
+      <div className="logo-invoice-container">
         <Link to="/">
           <div className="logo-container">
             <img
@@ -21,7 +21,7 @@ const Sidebar = () => {
           </Link>
         </div>
       </div>
-      <div>
+      <div className="logo-invoice-container">
         <p>
           <i class="fas fa-moon"></i>
         </p>

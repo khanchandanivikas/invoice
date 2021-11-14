@@ -72,20 +72,20 @@ const Invoice = () => {
           <div className="invoice-item-details">
             <div>
               <p>Invoice Date</p>
-              <h3 className="marginTopOne">18 Aug 2021</h3>
+              <h4 className="marginTopOne">18 Aug 2021</h4>
               <p className="marginTopTwo">Payment Due</p>
-              <h3 className="marginTopOne">19 Aug 2021</h3>
+              <h4 className="marginTopOne">19 Aug 2021</h4>
             </div>
             <div>
               <p>Bill To</p>
-              <h3 className="marginTopTwo">Jensen Huang</h3>
+              <h4 className="marginTopTwo">Jensen Huang</h4>
               <p className="marginTopOne">
                 106 Kendell Street Sharrington NR24 5WQ United Kingdom
               </p>
             </div>
             <div>
               <p>Sent to</p>
-              <h3 className="marginTopTwo">jensenh@mail.com</h3>
+              <h4 className="marginTopTwo">jensenh@mail.com</h4>
             </div>
           </div>
           <div className="invoice-item-qty">

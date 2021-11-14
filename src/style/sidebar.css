@@ -35,7 +35,7 @@ aside {
     height: 50%;
     background: rgb(146, 119, 255);
     border-radius: 20px 0px;
-} 
+}
 
 /* logo image */
 .logo-img {
@@ -52,9 +52,42 @@ aside {
 }
 
 /* icons */
-.fa-receipt, .fa-moon {
+.fa-receipt,
+.fa-moon {
     color: rgb(126, 136, 195);
     padding: 1rem;
     font-size: 1.5rem;
     border-bottom: solid 1px rgb(126, 136, 195);
+}
+
+@media only screen and (max-width: 768px) {
+    aside {
+        height: auto;
+        flex-direction: row;
+        width: 100vw;
+        border-radius: 0 0 0 0;
+    }
+
+    .logo-invoice-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fa-receipt,
+    .fa-moon {
+        border-bottom: none;
+    }
+
+    .fa-moon {
+        border-right: solid 1px rgb(126, 136, 195);
+    }
+
+    .fa-receipt {
+        border-left: solid 1px rgb(126, 136, 195);
+    }
+
+    .logo-container {
+        margin-right: 1rem;
+    }
 }

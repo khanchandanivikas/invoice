@@ -124,3 +124,69 @@
 a {
     text-decoration: none;
 }
+
+@media only screen and (max-width: 1200px) {
+    .container-newInvoice {
+        width: 70%;
+    }
+    .container-invoices {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .container-newInvoice {
+        width: 80%;
+    }
+    .container-invoices {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .container-newInvoice {
+        width: 90%;
+    }
+    .container-invoices {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container-newInvoice {
+        width: 100%;
+    }
+    .container-invoices {
+        width: 100%;
+    }
+    .container-invoice {
+        padding: 7rem 2rem 2rem 2rem;
+    }
+    .invoice {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .invoice p:nth-of-type(1) {
+        order: 4;
+    }
+    .invoice h4 {
+        text-align: left;
+    }
+    .invoice p:nth-of-type(2) {
+        text-align: right;
+    }
+    .paid-btn,
+.pending-btn {
+    margin-left: 8rem;
+    margin-top: 7px;
+    width: auto;
+}
+}
+
+@media only screen and (max-width: 481px) {
+    .paid-btn,
+.pending-btn {
+    margin-left: 3rem;
+    width: auto;
+}
+}

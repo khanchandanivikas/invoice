@@ -55,3 +55,50 @@ main {
 .container-table {
     margin: 4rem 0 2rem 0;
 }
+
+@media only screen and (max-width: 1300px){
+    canvas {
+        width: 500px !important;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .dashboard-stats {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .stat:nth-of-type(1) {
+        order: 2;
+    }
+    .stat:nth-of-type(2) {
+        order: 3;
+    }
+    .chart {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    canvas {
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    main {
+        padding-left: 2rem;
+    }
+}
+
+@media only screen and (max-width: 481px)  {
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    .chart {
+        grid-column: span 1;
+    }
+    main {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

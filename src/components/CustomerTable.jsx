@@ -66,10 +66,10 @@ const CustomerTable = () => {
         data={data}
         actions={[
           {
-            icon: 'search',
-            tooltip: 'User Details',
-            onClick: (event, rowData) => history.push("/invoices")
-          }
+            icon: "search",
+            tooltip: "User Details",
+            onClick: (event, rowData) => history.push("/invoices"),
+          },
         ]}
         options={{
           actionsColumnIndex: -1,
