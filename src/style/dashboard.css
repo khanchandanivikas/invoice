@@ -44,25 +44,40 @@ main {
     margin-top: 5px;
 }
 
-.fa-chart-line, .fa-users, .fa-file-invoice-dollar, .fa-file-invoice {
+.fa-chart-line,
+.fa-users,
+.fa-file-invoice-dollar,
+.fa-file-invoice {
     color: rgb(124, 93, 250);
     background-color: rgba(124, 93, 250, 0.205);
-    padding: 1rem;
     border-radius: 50%;
-    margin: 0 1.5rem 0 1.5rem; 
+    margin: 0 1.5rem 0 1.5rem;
+}
+
+.fa-users {
+    padding: 1.1rem 1rem;
+}
+
+.fa-chart-line {
+    padding: 1rem;
+}
+
+.fa-file-invoice-dollar,
+.fa-file-invoice {
+    padding: 1.1rem 1.2rem;
 }
 
 .container-table {
     margin: 4rem 0 2rem 0;
 }
 
-@media only screen and (max-width: 1300px){
+@media only screen and (max-width: 1300px) {
     canvas {
         width: 500px !important;
     }
 }
 
-@media only screen and (max-width: 1024px){
+@media only screen and (max-width: 1024px) {
     .dashboard-stats {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
@@ -76,13 +91,16 @@ main {
     .stat:nth-of-type(1) {
         order: 2;
     }
+
     .stat:nth-of-type(2) {
         order: 3;
     }
+
     .chart {
         grid-row: span 1;
         grid-column: span 2;
     }
+
     canvas {
         width: 100% !important;
     }
@@ -92,24 +110,28 @@ main {
     main {
         padding-left: 2rem;
     }
+
     .stat {
         padding-top: 1rem;
         padding-bottom: 1rem;
     }
 }
 
-@media only screen and (max-width: 481px)  {
+@media only screen and (max-width: 481px) {
     .dashboard-stats {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
     }
+
     .chart {
         grid-column: span 1;
     }
+
     main {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+
     .stat {
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;

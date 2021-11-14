@@ -1,10 +1,36 @@
 import React from "react";
+import { useState } from "react";
 import "../style/newInvoiceForm.css";
 import { motion } from "framer-motion";
 
-const editInvoice = (props) => {
+const EditInvoice = (props) => {
+  const [inputList, setInputList] = useState([
+    { name: "", quantity: 0, price: 0, total: 0 },
+  ]);
+  const totalPrice = inputList[0].price * inputList[0].quantity;
+
+  // handle input change
+  const handleInputChange = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...inputList];
+    list[index][name] = value;
+    setInputList(list);
+  };
+
+  // handle click event of the Remove button
+  const handleRemoveClick = (index) => {
+    const list = [...inputList];
+    list.splice(index, 1);
+    setInputList(list);
+  };
+
+  // handle click event of the Add button
+  const handleAddClick = () => {
+    setInputList([...inputList, { name: "", quantity: 0, price: 0, total: 0 }]);
+  };
+
   const toggleEditInvoice = props.toggleEditInvoice;
-  
+
   const animation = {
     hidden: {
       x: "-100%",
@@ -92,6 +118,68 @@ const editInvoice = (props) => {
             </div>
             <label htmlFor="description">Description</label>
             <input type="text" name="description" />
+            {inputList.map((x, i) => {
+              return (
+                <div className="itemList">
+                  <div>
+                    <label htmlFor="itemName">Item Name</label>
+                    <input
+                      name="name"
+                      value={x.name}
+                      onChange={(e) => handleInputChange(e, i)}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="quantity">Qty.</label>
+                    <input
+                      name="quantity"
+                      value={x.quantity}
+                      onChange={(e) => handleInputChange(e, i)}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="price">Price</label>
+                    <input
+                      name="price"
+                      value={x.price}
+                      onChange={(e) => handleInputChange(e, i)}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="total">Total</label>
+                    <input
+                      name="total"
+                      id="total-input"
+                      value={totalPrice ? totalPrice : 0}
+                      onChange={(e) => handleInputChange(e, i)}
+                    />
+                  </div>
+                  <div>
+                    {inputList.length !== 1 && (
+                      <button
+                        className="btn-trash"
+                        onClick={() => handleRemoveClick(i)}
+                      >
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    )}
+                    {inputList.length - 1 === i && (
+                      <button
+                        style={{
+                          marginLeft: "10px",
+                          marginTop: "10px",
+                          minWidth: "6rem",
+                        }}
+                        className="edit-btn"
+                        onClick={handleAddClick}
+                      >
+                        + Add
+                      </button>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
           </form>
         </div>
         <div className="newInvoice-form-buttons">
@@ -105,4 +193,4 @@ const editInvoice = (props) => {
   );
 };
 
-export default editInvoice;
+export default EditInvoice;

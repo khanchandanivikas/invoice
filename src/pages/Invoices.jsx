@@ -33,6 +33,11 @@ const Invoices = () => {
             <h5>
               Filter <i class="fas fa-chevron-down"></i>
             </h5>
+            {/* <select name="filter">
+            <option value="">Filter</option>
+              <option value="paid">Paid</option>
+              <option value="pending">Pending</option>
+            </select> */}
             <button onClick={toggleNewInvoice} className="btn-newInvoice">
               <i class="fas fa-plus"></i> New
             </button>

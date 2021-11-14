@@ -54,7 +54,7 @@
     align-items: center;
     margin-top: 2rem;
     column-gap: 1rem;
-    width: 98%;
+    width: 96.5%;
 }
 
 label {
@@ -63,7 +63,8 @@ label {
     font-size: 0.85rem;
 }
 
-input, select {
+input,
+select {
     outline: none;
     border: 1px solid rgb(223, 227, 250);
     background: rgb(255, 255, 255);
@@ -76,7 +77,8 @@ input, select {
     width: 100%;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
     border: 1px solid rgb(124, 93, 250);
 }
 
@@ -121,6 +123,40 @@ input:focus, select:focus {
     background-color: rgb(146, 119, 255);
 }
 
+.btn-trash {
+    border: none;
+    background: #fff;
+    color: rgb(119, 127, 152);
+    margin: 10px 0;
+    font-size: 1.05rem;
+    cursor: pointer;
+}
+
+.btn-trash:hover {
+    color: rgb(236, 87, 87);
+}
+
+#itemList-heading {
+    color: rgb(119, 127, 152);
+    font-size: 1.125rem;
+    font-weight: bold;
+}
+
+#total-input {
+    font-weight: bold;
+    border: none;
+    color: rgb(136, 142, 176);
+    font-size: 1.1rem;
+}
+
+.itemList {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 10px;
+    margin-top: 1rem;
+}
+
 @media only screen and (max-width: 1024px) {
     .newInvoice-container {
         width: 70vw;
@@ -128,20 +164,25 @@ input:focus, select:focus {
 }
 
 @media only screen and (max-width: 768px) {
-.newInvoice-container {
-    padding: 2rem 1rem 1rem 2rem;
-    margin-top: 5rem;
-    height: calc(100% - 5rem);
-}
+    .newInvoice-container {
+        padding: 2rem 1rem 1rem 2rem;
+        margin-top: 5rem;
+        height: calc(100% - 5rem);
+    }
 }
 
 @media only screen and (max-width: 481px) {
-.newInvoice-container {
-    width: 90vw;
+    .newInvoice-container {
+        width: 90vw;
+    }
+
+    .itemList {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .itemList div:nth-child(1) {
+        grid-column: 1/-1;
+        margin-bottom: 10px;
+    }
 }
-}
-
-
-
-
-
