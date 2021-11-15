@@ -17,13 +17,13 @@ const Sidebar = () => {
         </Link>
         <div>
           <Link to="/invoices">
-            <i class="fas fa-receipt"></i>
+            <i className="fas fa-receipt"></i>
           </Link>
         </div>
       </div>
       <div className="logo-invoice-container">
         <p>
-          <i class="fas fa-moon"></i>
+          <i className="fas fa-moon"></i>
         </p>
         <img
           className="avatar-img"

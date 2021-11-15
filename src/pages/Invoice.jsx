@@ -44,8 +44,8 @@ const Invoice = () => {
         <div className="invoice-status-container">
           <div className="invoice-status">
             <p>Status</p>
-            <button class="paid-btn">
-              <i class="fas fa-circle paid"></i> Paid
+            <button className="paid-btn">
+              <i className="fas fa-circle paid"></i> Paid
             </button>
           </div>
           <div className="btn-container">

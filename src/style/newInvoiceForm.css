@@ -123,16 +123,14 @@ select:focus {
     background-color: rgb(146, 119, 255);
 }
 
-.btn-trash {
-    border: none;
-    background: #fff;
+.fa-trash {
     color: rgb(119, 127, 152);
     margin: 10px 0;
     font-size: 1.05rem;
     cursor: pointer;
 }
 
-.btn-trash:hover {
+.fa-trash:hover {
     color: rgb(236, 87, 87);
 }
 

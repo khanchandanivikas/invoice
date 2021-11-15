@@ -30,16 +30,16 @@ const Invoices = () => {
             <p>There are 7 total invoices.</p>
           </div>
           <div className="filter-new">
-            <h5>
+            {/* <h5>
               Filter <i class="fas fa-chevron-down"></i>
-            </h5>
-            {/* <select name="filter">
-            <option value="">Filter</option>
+            </h5> */}
+            <select name="filter" className="filter-select">
+              <option value="">Filter</option>
               <option value="paid">Paid</option>
               <option value="pending">Pending</option>
-            </select> */}
+            </select>
             <button onClick={toggleNewInvoice} className="btn-newInvoice">
-              <i class="fas fa-plus"></i> New
+              <i className="fas fa-plus"></i> New
             </button>
           </div>
         </div>
@@ -52,8 +52,8 @@ const Invoices = () => {
               <p>Due 19 Aug 2021</p>
               <p>Vikas khan</p>
               <h4>$556</h4>
-              <button class="paid-btn">
-                <i class="fas fa-circle paid"></i> Paid
+              <button className="paid-btn">
+                <i className="fas fa-circle paid"></i> Paid
               </button>
             </div>
           </Link>
@@ -65,8 +65,8 @@ const Invoices = () => {
               <p>Due 19 Aug 2021</p>
               <p>Vikas khan</p>
               <h4>$1,556.05</h4>
-              <button class="pending-btn">
-                <i class="fas fa-circle pending"></i> Pending
+              <button className="pending-btn">
+                <i className="fas fa-circle pending"></i> Pending
               </button>
             </div>
           </Link>

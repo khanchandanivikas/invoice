@@ -5,15 +5,24 @@ import { motion } from "framer-motion";
 
 const CreateInvoice = (props) => {
   const [inputList, setInputList] = useState([
-    { name: "", quantity: 0, price: 0, total: 0 },
+    { name: "", quantity: "", price: "", total: "" },
   ]);
-  const totalPrice = inputList[0].price * inputList[0].quantity;
 
   // handle input change
   const handleInputChange = (e, index) => {
     const { name, value } = e.target;
     const list = [...inputList];
-    list[index][name] = value;  
+    list[index][name] = Number(value);
+    list[index].total = list[index].price * list[index].quantity;
+    setInputList(list);
+  };
+
+  // handle input change
+  const handleInputNameChange = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...inputList];
+    list[index][name] = value;
+    list[index].total = list[index].price * list[index].quantity;
     setInputList(list);
   };
 
@@ -26,7 +35,10 @@ const CreateInvoice = (props) => {
 
   // handle click event of the Add button
   const handleAddClick = () => {
-    setInputList([...inputList, { name: "", quantity: 0, price: 0, total: 0 }]);
+    setInputList([
+      ...inputList,
+      { name: "", quantity: "", price: "", total: "" },
+    ]);
   };
 
   const toggleNewInvoice = props.toggleNewInvoice;
@@ -128,13 +140,15 @@ const CreateInvoice = (props) => {
                     <label htmlFor="itemName">Item Name</label>
                     <input
                       name="name"
+                      type="text"
                       value={x.name}
-                      onChange={(e) => handleInputChange(e, i)}
+                      onChange={(e) => handleInputNameChange(e, i)}
                     />
                   </div>
                   <div>
                     <label htmlFor="quantity">Qty.</label>
                     <input
+                      type="number"
                       name="quantity"
                       value={x.quantity}
                       onChange={(e) => handleInputChange(e, i)}
@@ -144,6 +158,7 @@ const CreateInvoice = (props) => {
                     <label htmlFor="price">Price</label>
                     <input
                       name="price"
+                      type="number"
                       value={x.price}
                       onChange={(e) => handleInputChange(e, i)}
                     />
@@ -152,23 +167,28 @@ const CreateInvoice = (props) => {
                     <label htmlFor="total">Total</label>
                     <input
                       name="total"
+                      type="number"
                       id="total-input"
-                      value={totalPrice ? totalPrice : 0}
+                      value={x.total}
                       onChange={(e) => handleInputChange(e, i)}
                     />
                   </div>
                   <div>
                     {inputList.length !== 1 && (
-                      <button
+                      <span
                         className="btn-trash"
                         onClick={() => handleRemoveClick(i)}
                       >
-                        <i class="fas fa-trash"></i>
-                      </button>
+                        <i className="fas fa-trash"></i>
+                      </span>
                     )}
                     {inputList.length - 1 === i && (
                       <button
-                        style={{ marginLeft: "10px", marginTop: "10px", minWidth: "6rem"}}
+                        style={{
+                          marginLeft: "10px",
+                          marginTop: "10px",
+                          minWidth: "6rem",
+                        }}
                         className="edit-btn"
                         onClick={handleAddClick}
                       >
