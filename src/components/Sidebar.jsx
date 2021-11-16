@@ -27,6 +27,7 @@ const Sidebar = () => {
         {/* <p>
           <i className="fas fa-moon"></i>
         </p> */}
+        {/* dark mode */}
         <div className="fa-moon">
           <Switch checked={isDark} onChange={toggle} styling="github" />
         </div>
