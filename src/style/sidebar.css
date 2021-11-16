@@ -51,9 +51,9 @@ aside {
     margin: 1rem;
 }
 
-.fa-moon::before {
+/* .fa-moon::before {
     content: ""
-}
+} */
 
 /* icons */
 .fa-receipt,
