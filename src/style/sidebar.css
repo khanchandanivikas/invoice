@@ -10,7 +10,7 @@ aside {
     align-items: center;
     text-align: center;
     border-radius: 0 20px 20px 0;
-    z-index: 3;
+    z-index: 11;
 }
 
 /* logo container */
@@ -49,6 +49,10 @@ aside {
     border-radius: 50%;
     width: 2rem;
     margin: 1rem;
+}
+
+.fa-moon::before {
+    content: ""
 }
 
 /* icons */

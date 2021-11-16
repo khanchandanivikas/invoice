@@ -27,6 +27,10 @@
     align-items: center;
 }
 
+.filter-new select{
+    min-width: 6.5rem;
+}
+
 /* new invoice btn */
 .btn-newInvoice {
     margin-left: 2.5rem;

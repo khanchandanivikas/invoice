@@ -33,7 +33,7 @@ const Invoices = () => {
             {/* <h5>
               Filter <i class="fas fa-chevron-down"></i>
             </h5> */}
-            <select name="filter" className="filter-select">
+            <select name="filter">
               <option value="">Filter</option>
               <option value="paid">Paid</option>
               <option value="pending">Pending</option>
