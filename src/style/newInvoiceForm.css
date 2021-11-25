@@ -147,6 +147,11 @@ select:focus {
     font-size: 1.1rem;
 }
 
+form span {
+    color: red;
+    margin-top: 5px;
+}
+
 .itemList {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;

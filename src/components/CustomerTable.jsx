@@ -1,74 +1,84 @@
 import React from "react";
 import MaterialTable from "material-table";
+import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-const CustomerTable = () => {
+const CustomerTable = (props) => {
+  const data = props.clients;
+  const getAllClients = props.getAllClients;
+  const setInvoiceTypeSelectedClientId = props.setInvoiceTypeSelectedClientId;
+  const getSelectedClientInvoices = props.getSelectedClientInvoices;
+  const setClientData = props.setClientData;
   let history = useHistory();
-
-  const data = [
-    {
-      client: "vikas",
-      contact: 638714934,
-      address: "ave de tunte 25",
-      email: "vikas@gmail.com",
-    },
-    {
-      client: "vikas",
-      contact: 638714934,
-      address: "ave de tunte 25",
-      email: "vikas@gmail.com",
-    },
-    {
-      client: "vikas",
-      contact: 638714934,
-      address: "ave de tunte 25",
-      email: "vikas@gmail.com",
-    },
-  ];
 
   const columns = [
     {
       title: "Client",
-      field: "client",
+      field: "clientName",
       validate: (rowData) =>
-        rowData.client === undefined || rowData.client === ""
-          ? "Required"
-          : true,
-    },
-    {
-      title: "Contact",
-      field: "contact",
-      validate: (rowData) =>
-        rowData.contact === undefined || rowData.contact === ""
-          ? "Required"
-          : true,
-    },
-    {
-      title: "Address",
-      field: "address",
-      validate: (rowData) =>
-        rowData.address === undefined || rowData.address === ""
+        rowData.clientName === undefined || rowData.clientName === ""
           ? "Required"
           : true,
     },
     {
       title: "Email",
-      field: "email",
+      field: "clientEmail",
       validate: (rowData) =>
-        rowData.email === undefined || rowData.email === "" ? "Required" : true,
+        rowData.clientEmail === undefined || rowData.clientEmail === ""
+          ? "Required"
+          : true,
+    },
+    {
+      title: "Address",
+      field: "clientStreet",
+      validate: (rowData) =>
+        rowData.clientStreet === undefined || rowData.clientStreet === ""
+          ? "Required"
+          : true,
+    },
+    {
+      title: "City",
+      field: "clientCity",
+      validate: (rowData) =>
+        rowData.clientCity === undefined || rowData.clientCity === ""
+          ? "Required"
+          : true,
+    },
+    {
+      title: "Country",
+      field: "clientCountry",
+      validate: (rowData) =>
+        rowData.clientCountry === undefined || rowData.clientCountry === ""
+          ? "Required"
+          : true,
+    },
+    {
+      title: "Post Code",
+      field: "clientPostCode",
+      validate: (rowData) =>
+        rowData.clientPostCode === undefined || rowData.clientPostCode === ""
+          ? "Required"
+          : true,
     },
   ];
   return (
     <div className="container-table">
       <MaterialTable
-        title="Customers"
+        title="Clients"
         columns={columns}
         data={data}
         actions={[
           {
             icon: "search",
             tooltip: "User Details",
-            onClick: (event, rowData) => history.push("/invoices"),
+            onClick: (event, rowData) => {
+              setInvoiceTypeSelectedClientId(rowData._id);
+              getSelectedClientInvoices(rowData._id, "");
+              setClientData(rowData);
+              setTimeout(() => {
+                history.push("/client-invoices");
+              }, 500);
+            },
           },
         ]}
         options={{
@@ -85,7 +95,21 @@ const CustomerTable = () => {
           onRowAdd: (newData) =>
             new Promise(async (resolve, reject) => {
               try {
-                console.log(newData);
+                const request = await axios.post(
+                  process.env.REACT_APP_BACKEND_URL + "/api/client/",
+                  {
+                    clientName: newData.clientName,
+                    clientEmail: newData.clientEmail,
+                    clientStreet: newData.clientStreet,
+                    clientCity: newData.clientCity,
+                    clientCountry: newData.clientCountry,
+                    clientPostCode: newData.clientPostCode,
+                  }
+                );
+                const datos = request.data;
+                console.log(datos);
+                getAllClients();
+                resolve();
               } catch (error) {
                 console.error("error" + error);
               }
@@ -93,8 +117,23 @@ const CustomerTable = () => {
           onRowUpdate: (newData, oldData) =>
             new Promise(async (resolve, reject) => {
               try {
-                console.log(newData);
-                console.log(oldData);
+                const request = await axios.patch(
+                  process.env.REACT_APP_BACKEND_URL +
+                    "/api/client/" +
+                    `${oldData._id}`,
+                  {
+                    clientName: newData.clientName,
+                    clientEmail: newData.clientEmail,
+                    clientStreet: newData.clientStreet,
+                    clientCity: newData.clientCity,
+                    clientCountry: newData.clientCountry,
+                    clientPostCode: newData.clientPostCode,
+                  }
+                );
+                const datos = request.data;
+                console.log(datos);
+                getAllClients();
+                resolve();
               } catch (error) {
                 console.error("error" + error);
               }
@@ -102,7 +141,15 @@ const CustomerTable = () => {
           onRowDelete: (oldData) =>
             new Promise(async (resolve, reject) => {
               try {
-                console.log(oldData);
+                const request = await axios.delete(
+                  process.env.REACT_APP_BACKEND_URL +
+                    "/api/client/" +
+                    `${oldData._id}`
+                );
+                getAllClients();
+                resolve();
+                const datos = request.data;
+                console.log(datos);
               } catch (error) {
                 console.log("error" + error);
               }

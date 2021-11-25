@@ -4,7 +4,16 @@ import { motion } from "framer-motion";
 import Chart from "../components/Chart";
 import CustomerTable from "../components/CustomerTable";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+  const clients = props.clients;
+  const getAllClients = props.getAllClients;
+  const invoices = props.invoices;
+  const pendingInvoices = props.pendingInvoices;
+  const salesTotal = props.salesTotal;
+  const setInvoiceTypeSelectedClientId = props.setInvoiceTypeSelectedClientId;
+  const getSelectedClientInvoices = props.getSelectedClientInvoices;
+  const setClientData = props.setClientData;
+
   const animation = {
     hidden: { opacity: 0 },
     visible: {
@@ -23,33 +32,39 @@ const Dashboard = () => {
           <i className="fas fa-chart-line"></i>
           <div>
             <p>Total Sales</p>
-            <h2>$214k</h2>
+            <h2>€{salesTotal}</h2>
           </div>
         </div>
         <div className="stat">
           <i className="fas fa-users"></i>
           <div>
             <p>Total Customers</p>
-            <h2>21k</h2>
+            <h2>{clients.length}</h2>
           </div>
         </div>
-        <Chart />
+        <Chart invoices={invoices} />
         <div className="stat">
           <i className="fas fa-file-invoice-dollar"></i>
           <div>
             <p>Total Invoices</p>
-            <h2>10k</h2>
+            <h2>{invoices.length}</h2>
           </div>
         </div>
         <div className="stat">
           <i className="fas fa-file-invoice"></i>
           <div>
             <p>Pending Invoices</p>
-            <h2>3k</h2>
+            <h2>{pendingInvoices.length}</h2>
           </div>
         </div>
       </div>
-      <CustomerTable />
+      <CustomerTable
+        clients={clients}
+        getAllClients={getAllClients}
+        setInvoiceTypeSelectedClientId={setInvoiceTypeSelectedClientId}
+        getSelectedClientInvoices={getSelectedClientInvoices}
+        setClientData={setClientData}
+      />
     </motion.main>
   );
 };

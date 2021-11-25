@@ -1,11 +1,19 @@
 import React from "react";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import dayjs from "dayjs";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 import "../style/invoice.css";
 import EditInvoice from "../components/EditInvoice";
 
-const Invoice = () => {
+const Invoice = (props) => {
+  let history = useHistory();
+  const invoiceSelected = props.selectedInvoice;
+  const getAllInvoices = props.getAllInvoices;
+  const getAllClients = props.getAllClients;
+  const deleteInvoiceById = props.deleteInvoiceById;
+  const markInvoiceAsPaid = props.markInvoiceAsPaid;
   const [editInvoice, setEditInvoice] = useState(false);
   const toggleEditInvoice = () => {
     setEditInvoice(!editInvoice);
@@ -21,7 +29,8 @@ const Invoice = () => {
     },
   };
 
-  const handleEliminar = () => {
+  const handleEliminar = (e) => {
+    e.preventDefault();
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -30,6 +39,19 @@ const Invoice = () => {
       confirmButtonColor: "rgb(124, 93, 250)",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteInvoiceById(invoiceSelected._id)
+          .then(() => {
+            getAllInvoices("");
+            getAllClients();
+            Swal.fire("Deleted!", "This invoice has been deleted.", "success");
+            history.push("/invoices");
+          })
+          .catch((error) => {
+            console.log("error" + error);
+          });
+      }
     });
   };
 
@@ -44,9 +66,15 @@ const Invoice = () => {
         <div className="invoice-status-container">
           <div className="invoice-status">
             <p>Status</p>
-            <button className="paid-btn">
-              <i className="fas fa-circle paid"></i> Paid
-            </button>
+            {invoiceSelected.status === "paid" ? (
+              <button className="paid-btn">
+                <i className="fas fa-circle paid"></i> Paid
+              </button>
+            ) : (
+              <button className="pending-btn">
+                <i className="fas fa-circle paid"></i> Pending
+              </button>
+            )}
           </div>
           <div className="btn-container">
             <button onClick={toggleEditInvoice} className="edit-btn">
@@ -55,66 +83,99 @@ const Invoice = () => {
             <button onClick={handleEliminar} className="delete-btn">
               Delete
             </button>
-          <button className="btn-save">Paid</button>
+            {invoiceSelected.status === "pending" ? (
+              <button
+                onClick={() => {
+                  markInvoiceAsPaid(invoiceSelected._id);
+                  history.push("/invoices");
+                }}
+                className="btn-save"
+              >
+                Paid
+              </button>
+            ) : null}
           </div>
         </div>
         <div className="invoice-item">
           <div className="invoice-item-number">
             <div>
               <h3>
-                <span>#</span> RT3080
+                <span>#</span>{invoiceSelected._id.slice(3, 8)}
               </h3>
-              <p className="invoice-title">Re-branding</p>
+              <p className="invoice-title">{invoiceSelected.description}</p>
             </div>
             <div className="invoice-item-number-address">
-              <p>19 Union Terrace London E1 3EZ United Kingdom</p>
+              <p>{invoiceSelected.senderStreet}</p>
             </div>
           </div>
           <div className="invoice-item-details">
             <div>
               <p>Invoice Date</p>
-              <h4 className="marginTopOne">18 Aug 2021</h4>
+              <h4 className="marginTopOne">
+                {dayjs(invoiceSelected.createdAt).format("DD MMM YYYY")}
+              </h4>
               <p className="marginTopTwo">Payment Due</p>
-              <h4 className="marginTopOne">19 Aug 2021</h4>
+              <h4 className="marginTopOne">
+                {dayjs(invoiceSelected.paymentDue).format("DD MMM YYYY")}
+              </h4>
             </div>
             <div>
               <p>Bill To</p>
-              <h4 className="marginTopTwo">Jensen Huang</h4>
+              <h4 className="marginTopTwo">
+                {invoiceSelected.client.clientEmail}
+              </h4>
               <p className="marginTopOne">
-                106 Kendell Street Sharrington NR24 5WQ United Kingdom
+                {invoiceSelected.client.clientStreet +
+                  " " +
+                  invoiceSelected.client.clientCity +
+                  " " +
+                  invoiceSelected.client.clientPostCode +
+                  " " +
+                  invoiceSelected.client.clientCountry}
               </p>
             </div>
             <div>
               <p>Sent to</p>
-              <h4 className="marginTopTwo">jensenh@mail.com</h4>
+              <h4 className="marginTopTwo">
+                {invoiceSelected.client.clientEmail}
+              </h4>
             </div>
           </div>
-          <div className="invoice-item-qty">
-            <div>
-              <p>Item Name</p>
-              <h4 className="marginTopTwo">Brand Guidelines</h4>
-            </div>
-            <div>
-              <p>QTY.</p>
-              <p className="marginTopTwo">1</p>
-            </div>
-            <div>
-              <p>Price</p>
-              <p className="marginTopTwo">£1,800.9</p>
-            </div>
-            <div>
-              <p>Total</p>
-              <h4 className="marginTopTwo">£1,800.9</h4>
-            </div>
-          </div>
+          {invoiceSelected.items.map((item) => {
+            return (
+              <div className="invoice-item-qty">
+                <div>
+                  <p>Item Name</p>
+                  <h4 className="marginTopTwo">{item.name}</h4>
+                </div>
+                <div>
+                  <p>QTY.</p>
+                  <p className="marginTopTwo">{item.quantity}</p>
+                </div>
+                <div>
+                  <p>Price</p>
+                  <p className="marginTopTwo">€{item.price}</p>
+                </div>
+                <div>
+                  <p>Total</p>
+                  <h4 className="marginTopTwo">€{item.total}</h4>
+                </div>
+              </div>
+            );
+          })}
           <div className="invoice-item-total">
             <h4>Amount Due</h4>
-            <h3>£1,800.9</h3>
+            <h3>€{invoiceSelected.totalBill}</h3>
           </div>
         </div>
       </div>
       {editInvoice ? (
-        <EditInvoice toggleEditInvoice={toggleEditInvoice} />
+        <EditInvoice
+          getAllInvoices={getAllInvoices}
+          getAllClients={getAllClients}
+          toggleEditInvoice={toggleEditInvoice}
+          invoiceSelected={invoiceSelected}
+        />
       ) : null}
     </motion.div>
   );

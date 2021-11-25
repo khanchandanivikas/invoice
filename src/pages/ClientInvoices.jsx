@@ -4,21 +4,23 @@ import { useHistory } from "react-router-dom";
 import dayjs from "dayjs";
 import "../style/invoices.css";
 import { motion } from "framer-motion";
-import CreateInvoice from "../components/CreateInvoice";
+import CreateClientInvoice from "../components/CreateClientInvoice";
 
-const Invoices = (props) => {
+const ClientInvoices = (props) => {
   let history = useHistory();
-  const invoices = props.invoices;
+  const invoices = props.selectedClientInvoices;
   const getAllInvoices = props.getAllInvoices;
   const getAllClients = props.getAllClients;
   const setInvoiceTypeSelected = props.setInvoiceTypeSelected;
+  const getSelectedClientInvoices = props.getSelectedClientInvoices;
   const getSelectedInvoice = props.getSelectedInvoice;
+  const invoiceTypeSelectedClientId = props.invoiceTypeSelectedClientId;
+  const clientData = props.clientData;
   const [newInvoice, setNewInvoice] = useState(false);
   const toggleNewInvoice = () => {
     setNewInvoice(!newInvoice);
   };
   const handleValueChange = (e) => {
-    e.preventDefault();
     setInvoiceTypeSelected(e.target.value);
   };
 
@@ -54,6 +56,9 @@ const Invoices = (props) => {
           </div>
         </div>
         <div className="container-invoices">
+          {!invoices || invoices.length === 0 ? (
+            <p style={{textAlign: 'center'}}>No Invoices Available For The Selected Client</p>
+          ) : null}
           {invoices.map((invoice) => {
             return (
               <div
@@ -87,14 +92,17 @@ const Invoices = (props) => {
         </div>
       </div>
       {newInvoice ? (
-        <CreateInvoice
+        <CreateClientInvoice
           toggleNewInvoice={toggleNewInvoice}
           getAllInvoices={getAllInvoices}
           getAllClients={getAllClients}
+          getSelectedClientInvoices={getSelectedClientInvoices}
+          invoiceTypeSelectedClientId={invoiceTypeSelectedClientId}
+          clientData={clientData}
         />
       ) : null}
     </motion.div>
   );
 };
 
-export default Invoices;
+export default ClientInvoices;

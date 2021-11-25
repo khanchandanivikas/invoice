@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { Switch, useDarkreader } from "react-darkreader";
 import "../style/sidebar.css";
 
 const Sidebar = () => {
-  // const [isDark, { toggle }] = useDarkreader(false);
   return (
     <aside>
       <div className="logo-invoice-container">
@@ -25,12 +23,10 @@ const Sidebar = () => {
       </div>
       <div className="logo-invoice-container">
         <p>
-          <i className="fas fa-moon"></i>
+          <Link to="/">
+            <i class="fas fa-home"></i>
+          </Link>
         </p>
-        {/* dark mode */}
-        {/* <div className="fa-moon">
-          <Switch checked={isDark} onChange={toggle} styling="github" />
-        </div> */}
         <img
           className="avatar-img"
           src="https://invoice-app-giraffe.vercel.app/images/image-avatar.jpg"

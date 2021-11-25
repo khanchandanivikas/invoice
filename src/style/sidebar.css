@@ -57,7 +57,7 @@ aside {
 
 /* icons */
 .fa-receipt,
-.fa-moon {
+.fa-home {
     color: rgb(126, 136, 195);
     padding: 1rem;
     font-size: 1.5rem;
@@ -79,11 +79,11 @@ aside {
     }
 
     .fa-receipt,
-    .fa-moon {
+    .fa-home {
         border-bottom: none;
     }
 
-    .fa-moon {
+    .fa-home {
         border-right: solid 1px rgb(126, 136, 195);
     }
 
