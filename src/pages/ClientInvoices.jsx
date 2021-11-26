@@ -39,7 +39,7 @@ const ClientInvoices = (props) => {
       <div className="container-invoice">
         <div className="container-newInvoice">
           <div className="invoice-heading-container">
-            <h1 className="invoice-heading">Invoices</h1>
+            <h1 className="invoice-heading">Invoices <span>{clientData.clientName}</span></h1>
             <p>There are {invoices.length} total invoices.</p>
           </div>
           <div className="filter-new">
@@ -66,7 +66,7 @@ const ClientInvoices = (props) => {
                 onClick={() => {
                   getSelectedInvoice(invoice._id);
                   setTimeout(() => {
-                    history.push("/invoice");
+                    history.push("/client-invoice");
                   }, 500);
                 }}
               >

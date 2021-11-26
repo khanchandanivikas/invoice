@@ -6,9 +6,9 @@ import dayjs from "dayjs";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 import "../style/invoice.css";
-import EditInvoice from "../components/EditInvoice";
+import EditClientInvoice from "../components/EditClientInvoice";
 
-const Invoice = (props) => {
+const ClientInvoice = (props) => {
   let history = useHistory();
   const invoiceSelected = props.selectedInvoice;
   const getAllInvoices = props.getAllInvoices;
@@ -47,7 +47,7 @@ const Invoice = (props) => {
             getAllInvoices("");
             getAllClients();
             Swal.fire("Deleted!", "This invoice has been deleted.", "success");
-            history.push("/invoices");
+            history.push("/client-invoices");
           })
           .catch((error) => {
             console.log("error" + error);
@@ -64,8 +64,8 @@ const Invoice = (props) => {
       exit="exit"
     >
       <div className="container-invoice-clicked">
-        <div className="back-container">
-          <Link to="/invoices">
+      <div className="back-container">
+          <Link to="/client-invoices">
             <p>
               <span>
                 <i class="fas fa-chevron-left"></i>
@@ -98,7 +98,7 @@ const Invoice = (props) => {
               <button
                 onClick={() => {
                   markInvoiceAsPaid(invoiceSelected._id);
-                  history.push("/invoices");
+                  history.push("/client-invoices");
                 }}
                 className="btn-save"
               >
@@ -111,8 +111,7 @@ const Invoice = (props) => {
           <div className="invoice-item-number">
             <div>
               <h3>
-                <span>#</span>
-                {invoiceSelected._id.slice(3, 8)}
+                <span>#</span>{invoiceSelected._id.slice(3, 8)}
               </h3>
               <p className="invoice-title">{invoiceSelected.description}</p>
             </div>
@@ -182,7 +181,7 @@ const Invoice = (props) => {
         </div>
       </div>
       {editInvoice ? (
-        <EditInvoice
+        <EditClientInvoice
           getAllInvoices={getAllInvoices}
           getAllClients={getAllClients}
           toggleEditInvoice={toggleEditInvoice}
@@ -193,4 +192,4 @@ const Invoice = (props) => {
   );
 };
 
-export default Invoice;
+export default ClientInvoice;

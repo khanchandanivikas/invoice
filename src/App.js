@@ -11,6 +11,7 @@ import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import Invoices from "./pages/Invoices";
 import Invoice from "./pages/Invoice";
+import ClientInvoice from "./pages/ClientInvoice";
 import ClientInvoices from "./pages/ClientInvoices";
 
 function App() {
@@ -178,6 +179,15 @@ function App() {
           </Route>
           <Route path="/invoice">
             <Invoice
+              getAllInvoices={getAllInvoices}
+              getAllClients={getAllClients}
+              selectedInvoice={selectedInvoice}
+              deleteInvoiceById={deleteInvoiceById}
+              markInvoiceAsPaid={markInvoiceAsPaid}
+            />
+          </Route>
+          <Route path="/client-invoice">
+            <ClientInvoice
               getAllInvoices={getAllInvoices}
               getAllClients={getAllClients}
               selectedInvoice={selectedInvoice}

@@ -6,7 +6,7 @@ import "../style/newInvoiceForm.css";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 
-const EditInvoice = (props) => {
+const EditClientInvoice = (props) => {
   let history = useHistory();
   const {
     register,
@@ -175,7 +175,7 @@ const EditInvoice = (props) => {
         getAllInvoices("");
         getAllClients();
         toggleEditInvoice();
-        history.push("/invoices");
+        history.push("/client-invoices");
       })
       .catch((error) => {
         console.log(error);
@@ -451,4 +451,4 @@ const EditInvoice = (props) => {
   );
 };
 
-export default EditInvoice;
+export default EditClientInvoice;

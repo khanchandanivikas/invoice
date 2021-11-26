@@ -25,6 +25,21 @@
     align-items: center;
 }
 
+.back-container {
+    width: 60%;
+}
+
+.back-container p {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.fa-chevron-left {
+    color: rgb(124, 93, 250);
+    font-size: 0.75rem;
+    margin-right: 1.5rem;
+}
+
 .edit-btn,
 .delete-btn {
     border-radius: 10rem;
@@ -126,6 +141,10 @@
         width: 80%;
     }
 
+    .back-container {
+        width: 80%;
+    }
+
     .container-invoice-clicked {
         padding-left: 5rem;
     }
@@ -137,6 +156,10 @@
     }
 
     .invoice-item {
+        width: 90%;
+    }
+
+    .back-container {
         width: 90%;
     }
 }
@@ -158,6 +181,10 @@
         display: flex;
         justify-content: flex-start;
         margin-top: 1rem;
+    }
+
+    .back-container {
+        width: 100%;
     }
 
     .btn-save {
@@ -197,5 +224,10 @@
     .invoice-item-qty {
         grid-template-columns: repeat(2, 1fr);
         padding: 1rem;
+    }
+
+    .marginTopOne,
+    .marginTopTwo {
+        font-size: 0.8rem;
     }
 }

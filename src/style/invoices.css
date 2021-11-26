@@ -20,6 +20,11 @@
     padding-bottom: 10px;
 }
 
+.invoice-heading span {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
 /* filter + new */
 .filter-new {
     display: flex;
