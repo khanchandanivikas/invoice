@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import dayjs from "dayjs";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import "../style/newInvoiceForm.css";
@@ -81,9 +82,20 @@ const EditInvoice = (props) => {
   const handleCreatedAtChange = (e) => {
     setCreatedAt(e.target.value);
   };
+
+  // const addDays = (days, created) => {
+  //   var today = created;
+  //   console.log(today)
+  //   var result = today.setDate(today.getDate() + parseInt(days));
+  //   const fecha = new Date(result);
+  //   setDateDue(fecha);
+  // };
+
   const handlePaymentTermsChange = (e) => {
     setPaymentTerms(e.target.value);
+    // addDays(paymentTerms, createdAt);
   };
+
   const handleDescriptionChange = (e) => {
     setdescription(e.target.value);
   };
@@ -98,7 +110,6 @@ const EditInvoice = (props) => {
     let totalValue = 0;
     itemList.forEach((item) => {
       totalValue = totalValue + item.total;
-      console.log(totalValue);
       return totalValue;
     });
     setBillTotal(totalValue);
@@ -163,7 +174,7 @@ const EditInvoice = (props) => {
           senderPostCode: senderPostCode,
           senderCountry: senderCountry,
           // createdAt: createdAt,
-          // paymentDue: paymentDue,
+          // paymentDue: dateDue,
           // paymentTerms: paymentTerms,
           description: description,
           items: inputList,
@@ -333,7 +344,7 @@ const EditInvoice = (props) => {
                 <label htmlFor="invoice date">Invoice Date</label>
                 <br />
                 <input
-                  value={createdAt}
+                  value={dayjs(createdAt).format("YYYY-MM-DD")}
                   onChange={handleCreatedAtChange}
                   type="date"
                   name="invoice date"

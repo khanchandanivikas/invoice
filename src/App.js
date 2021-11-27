@@ -26,14 +26,12 @@ function App() {
   const [selectedInvoice, setSelectedInvoice] = useState([]);
   const [selectedClientInvoices, setSelectedClientInvoices] = useState([]);
   const [clientData, setClientData] = useState("");
-
   const getAllClients = async () => {
     try {
       const request = await axios.get(
         process.env.REACT_APP_BACKEND_URL + "/api/client/"
       );
       const datos = await request.data;
-      console.log(datos);
       setClients(datos.clients);
     } catch (error) {
       console.log(error);
@@ -47,7 +45,6 @@ function App() {
       );
       const datos = await request.data;
       setInvoices(datos.invoices);
-      console.log(datos);
     } catch (error) {
       console.log(error);
     }
@@ -72,7 +69,6 @@ function App() {
       );
       const datos = await request.data;
       setSelectedInvoice(datos.invoice);
-      console.log(datos.invoice);
     } catch (error) {
       console.log(error);
     }
@@ -85,7 +81,6 @@ function App() {
       );
       const datos = await request.data;
       setSelectedClientInvoices(datos.invoices);
-      console.log(datos);
     } catch (error) {
       console.log(error);
     }

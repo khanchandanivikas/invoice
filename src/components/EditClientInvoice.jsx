@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import dayjs from "dayjs";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import "../style/newInvoiceForm.css";
@@ -98,7 +99,6 @@ const EditClientInvoice = (props) => {
     let totalValue = 0;
     itemList.forEach((item) => {
       totalValue = totalValue + item.total;
-      console.log(totalValue);
       return totalValue;
     });
     setBillTotal(totalValue);
@@ -333,7 +333,7 @@ const EditClientInvoice = (props) => {
                 <label htmlFor="invoice date">Invoice Date</label>
                 <br />
                 <input
-                  value={createdAt}
+                  value={dayjs(createdAt).format("YYYY-MM-DD")}
                   onChange={handleCreatedAtChange}
                   type="date"
                   name="invoice date"

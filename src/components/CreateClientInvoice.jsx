@@ -30,7 +30,6 @@ const CreateClientInvoice = (props) => {
     let totalValue = 0;
     itemList.forEach((item) => {
       totalValue = totalValue + item.total;
-      console.log(totalValue);
       return totalValue;
     });
     setBillTotal(totalValue);

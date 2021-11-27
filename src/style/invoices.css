@@ -202,6 +202,13 @@ a {
     }
 }
 
+@media only screen and (min-width: 482px) and (max-width: 767px) {
+    .paid-btn,
+    .pending-btn {
+        margin-left: 14rem;
+    }
+}
+
 @media only screen and (max-width: 481px) {
     .container-newInvoice .filter-new h5 {
         min-width: 4rem;

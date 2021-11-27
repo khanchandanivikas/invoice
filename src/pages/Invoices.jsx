@@ -70,7 +70,7 @@ const Invoices = (props) => {
                   {invoice._id.slice(3, 8)}
                 </h5>
                 <p>Due {dayjs(invoice.paymentDue).format("DD MMM YYYY")}</p>
-                <p>{invoice.senderCity}</p>
+                <p>{invoice.client.clientName}</p>
                 <h4>€{invoice.totalBill}</h4>
                 {invoice.status === "paid" ? (
                   <button className="paid-btn">

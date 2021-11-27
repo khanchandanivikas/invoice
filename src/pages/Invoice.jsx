@@ -134,7 +134,7 @@ const Invoice = (props) => {
             <div>
               <p>Bill To</p>
               <h4 className="marginTopTwo">
-                {invoiceSelected.client.clientEmail}
+                {invoiceSelected.client.clientName}
               </h4>
               <p className="marginTopOne">
                 {invoiceSelected.client.clientStreet +
