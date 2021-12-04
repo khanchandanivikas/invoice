@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import dayjs from "dayjs";
 import "../style/invoices.css";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import CreateInvoice from "../components/CreateInvoice";
 
 const Invoices = (props) => {
@@ -86,13 +86,15 @@ const Invoices = (props) => {
           })}
         </div>
       </div>
-      {newInvoice ? (
-        <CreateInvoice
-          toggleNewInvoice={toggleNewInvoice}
-          getAllInvoices={getAllInvoices}
-          getAllClients={getAllClients}
-        />
-      ) : null}
+      <AnimatePresence>
+        {newInvoice ? (
+          <CreateInvoice
+            toggleNewInvoice={toggleNewInvoice}
+            getAllInvoices={getAllInvoices}
+            getAllClients={getAllClients}
+          />
+        ) : null}
+      </AnimatePresence>
     </motion.div>
   );
 };

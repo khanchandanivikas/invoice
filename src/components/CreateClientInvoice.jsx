@@ -126,7 +126,7 @@ const CreateClientInvoice = (props) => {
   const animation = {
     hidden: {
       x: "-100%",
-      transition: { type: "spring", duration: 0.75 },
+      transition: { type: "spring", duration: 0.55 },
     },
     visible: {
       x: 0,

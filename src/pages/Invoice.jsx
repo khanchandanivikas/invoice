@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Swal from "sweetalert2";
 import "../style/invoice.css";
 import EditInvoice from "../components/EditInvoice";
@@ -181,14 +181,16 @@ const Invoice = (props) => {
           </div>
         </div>
       </div>
-      {editInvoice ? (
-        <EditInvoice
-          getAllInvoices={getAllInvoices}
-          getAllClients={getAllClients}
-          toggleEditInvoice={toggleEditInvoice}
-          invoiceSelected={invoiceSelected}
-        />
-      ) : null}
+      <AnimatePresence>
+        {editInvoice ? (
+          <EditInvoice
+            getAllInvoices={getAllInvoices}
+            getAllClients={getAllClients}
+            toggleEditInvoice={toggleEditInvoice}
+            invoiceSelected={invoiceSelected}
+          />
+        ) : null}
+      </AnimatePresence>
     </motion.div>
   );
 };

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import dayjs from "dayjs";
 import "../style/invoices.css";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import CreateClientInvoice from "../components/CreateClientInvoice";
 
 const ClientInvoices = (props) => {
@@ -39,7 +39,9 @@ const ClientInvoices = (props) => {
       <div className="container-invoice">
         <div className="container-newInvoice">
           <div className="invoice-heading-container">
-            <h1 className="invoice-heading">Invoices <span>{clientData.clientName}</span></h1>
+            <h1 className="invoice-heading">
+              Invoices <span>{clientData.clientName}</span>
+            </h1>
             <p>There are {invoices.length} total invoices.</p>
           </div>
           <div className="filter-new">
@@ -57,7 +59,9 @@ const ClientInvoices = (props) => {
         </div>
         <div className="container-invoices">
           {!invoices || invoices.length === 0 ? (
-            <p style={{textAlign: 'center'}}>No Invoices Available For The Selected Client</p>
+            <p style={{ textAlign: "center" }}>
+              No Invoices Available For The Selected Client
+            </p>
           ) : null}
           {invoices.map((invoice) => {
             return (
@@ -91,16 +95,18 @@ const ClientInvoices = (props) => {
           })}
         </div>
       </div>
-      {newInvoice ? (
-        <CreateClientInvoice
-          toggleNewInvoice={toggleNewInvoice}
-          getAllInvoices={getAllInvoices}
-          getAllClients={getAllClients}
-          getSelectedClientInvoices={getSelectedClientInvoices}
-          invoiceTypeSelectedClientId={invoiceTypeSelectedClientId}
-          clientData={clientData}
-        />
-      ) : null}
+      <AnimatePresence>
+        {newInvoice ? (
+          <CreateClientInvoice
+            toggleNewInvoice={toggleNewInvoice}
+            getAllInvoices={getAllInvoices}
+            getAllClients={getAllClients}
+            getSelectedClientInvoices={getSelectedClientInvoices}
+            invoiceTypeSelectedClientId={invoiceTypeSelectedClientId}
+            clientData={clientData}
+          />
+        ) : null}
+      </AnimatePresence>
     </motion.div>
   );
 };

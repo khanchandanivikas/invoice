@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Swal from "sweetalert2";
 import "../style/invoice.css";
 import EditClientInvoice from "../components/EditClientInvoice";
@@ -64,7 +64,7 @@ const ClientInvoice = (props) => {
       exit="exit"
     >
       <div className="container-invoice-clicked">
-      <div className="back-container">
+        <div className="back-container">
           <Link to="/client-invoices">
             <p>
               <span>
@@ -111,7 +111,8 @@ const ClientInvoice = (props) => {
           <div className="invoice-item-number">
             <div>
               <h3>
-                <span>#</span>{invoiceSelected._id.slice(3, 8)}
+                <span>#</span>
+                {invoiceSelected._id.slice(3, 8)}
               </h3>
               <p className="invoice-title">{invoiceSelected.description}</p>
             </div>
@@ -180,14 +181,16 @@ const ClientInvoice = (props) => {
           </div>
         </div>
       </div>
-      {editInvoice ? (
-        <EditClientInvoice
-          getAllInvoices={getAllInvoices}
-          getAllClients={getAllClients}
-          toggleEditInvoice={toggleEditInvoice}
-          invoiceSelected={invoiceSelected}
-        />
-      ) : null}
+      <AnimatePresence>
+        {editInvoice ? (
+          <EditClientInvoice
+            getAllInvoices={getAllInvoices}
+            getAllClients={getAllClients}
+            toggleEditInvoice={toggleEditInvoice}
+            invoiceSelected={invoiceSelected}
+          />
+        ) : null}
+      </AnimatePresence>
     </motion.div>
   );
 };
