@@ -181,7 +181,7 @@ const Invoice = (props) => {
           </div>
         </div>
       </div>
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         {editInvoice ? (
           <EditInvoice
             getAllInvoices={getAllInvoices}
