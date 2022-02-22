@@ -19,7 +19,8 @@ function App() {
   // status
   const [invoiceTypeSelected, setInvoiceTypeSelected] = useState("");
   // id
-  const [invoiceTypeSelectedClientId, setInvoiceTypeSelectedClientId] = useState("");
+  const [invoiceTypeSelectedClientId, setInvoiceTypeSelectedClientId] =
+    useState("");
   const [invoices, setInvoices] = useState([]);
   const [pendingInvoices, setPendingInvoices] = useState("");
   const [salesTotal, setSalesTotal] = useState("");
@@ -77,7 +78,8 @@ function App() {
   const getSelectedClientInvoices = async (idClient, status) => {
     try {
       const request = await axios.get(
-        process.env.REACT_APP_BACKEND_URL + `/api/invoice/idClient/${idClient}/${status}`
+        process.env.REACT_APP_BACKEND_URL +
+          `/api/invoice/idClient/${idClient}/${status}`
       );
       const datos = await request.data;
       setSelectedClientInvoices(datos.invoices);
@@ -153,6 +155,7 @@ function App() {
           </Route>
           <Route path="/invoices">
             <Invoices
+              key={invoices._id}
               invoices={invoices}
               getAllInvoices={getAllInvoices}
               getAllClients={getAllClients}
@@ -162,6 +165,7 @@ function App() {
           </Route>
           <Route path="/client-invoices">
             <ClientInvoices
+              key={selectedClientInvoices._id}
               selectedClientInvoices={selectedClientInvoices}
               getAllInvoices={getAllInvoices}
               getAllClients={getAllClients}
@@ -174,6 +178,7 @@ function App() {
           </Route>
           <Route path="/invoice">
             <Invoice
+              key={selectedInvoice._id}
               getAllInvoices={getAllInvoices}
               getAllClients={getAllClients}
               selectedInvoice={selectedInvoice}
@@ -183,6 +188,7 @@ function App() {
           </Route>
           <Route path="/client-invoice">
             <ClientInvoice
+              key={selectedInvoice._id}
               getAllInvoices={getAllInvoices}
               getAllClients={getAllClients}
               selectedInvoice={selectedInvoice}

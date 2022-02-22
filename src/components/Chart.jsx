@@ -129,7 +129,6 @@ const Chart = (props) => {
     var dec = [];
     itemList.forEach((item) => {
       var test = new Date(item.createdAt.slice(0, 10)).getMonth();
-      console.log(test);
       switch (test) {
         case 0:
           jan.push(item.totalBill);

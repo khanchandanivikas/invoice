@@ -68,7 +68,7 @@ const ClientInvoice = (props) => {
           <Link to="/client-invoices">
             <p>
               <span>
-                <i class="fas fa-chevron-left"></i>
+                <i className="fas fa-chevron-left"></i>
               </span>{" "}
               Go back
             </p>

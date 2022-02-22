@@ -57,6 +57,7 @@ const Invoices = (props) => {
           {invoices.map((invoice) => {
             return (
               <div
+                key={invoice._id}
                 className="invoice"
                 onClick={() => {
                   getSelectedInvoice(invoice._id);
