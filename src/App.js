@@ -105,8 +105,8 @@ function App() {
       .patch(process.env.REACT_APP_BACKEND_URL + `/api/invoice/${id}`, {
         status: "paid",
       })
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        // console.log(response);
         getAllInvoices("");
         getAllClients();
       })

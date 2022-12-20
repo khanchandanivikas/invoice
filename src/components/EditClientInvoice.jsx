@@ -170,8 +170,8 @@ const EditClientInvoice = (props) => {
           totalBill: billTotal,
         }
       )
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        // console.log(response);
         getAllInvoices("");
         getAllClients();
         toggleEditInvoice();

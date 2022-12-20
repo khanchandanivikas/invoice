@@ -106,8 +106,8 @@ const CustomerTable = (props) => {
                     clientPostCode: newData.clientPostCode,
                   }
                 );
-                const datos = request.data;
-                console.log(datos);
+                // const datos = request.data;
+                // console.log(datos);
                 getAllClients();
                 resolve();
               } catch (error) {
@@ -130,8 +130,8 @@ const CustomerTable = (props) => {
                     clientPostCode: newData.clientPostCode,
                   }
                 );
-                const datos = request.data;
-                console.log(datos);
+                // const datos = request.data;
+                // console.log(datos);
                 getAllClients();
                 resolve();
               } catch (error) {
@@ -148,8 +148,8 @@ const CustomerTable = (props) => {
                 );
                 getAllClients();
                 resolve();
-                const datos = request.data;
-                console.log(datos);
+                // const datos = request.data;
+                // console.log(datos);
               } catch (error) {
                 console.log("error" + error);
               }

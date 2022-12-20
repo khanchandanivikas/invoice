@@ -108,8 +108,8 @@ const CreateInvoice = (props) => {
         clientPostCode: data.clientPostCode,
         clientCountry: data.clientCountry,
       })
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        // console.log(response);
         getAllInvoices("");
         getAllClients();
         toggleNewInvoice();
